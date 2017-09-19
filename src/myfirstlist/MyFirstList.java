@@ -6,7 +6,6 @@
 package myfirstlist;
 
 import container.List;
-import container.Node;
 
 /**
  *
@@ -21,16 +20,8 @@ public class MyFirstList {
         // TODO code application logic here
 
         List list = new List();
-        list.add(0);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
+
+        list.add(0, 10);
 
         System.out.println(list.toString());
     }
