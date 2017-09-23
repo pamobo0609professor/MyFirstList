@@ -114,6 +114,59 @@ public class List {
         return index;
     }
 
+    private int removeHead() {
+        final int deleted = head.getData();
+        head = head.getNext();
+
+        return deleted;
+    }
+
+    private int removeLast() {
+        final int deleted = last.getData();
+
+        Node aux = head;
+        for (int i = 0; i < size - 2; i++) {
+            aux = aux.getNext();
+        }
+
+        aux.setNext(null);
+        last = aux;
+
+        return deleted;
+    }
+
+    public int remove(int index) {
+        int result = -1000;
+        if (isEmpty()) {
+            System.out.println("Can't delete on an empty list.");
+        } else {
+            if (index >= 0 && index < size) {
+                if (0 == index) {
+                    result = removeHead();
+                } else if (size - 1 == index) {
+                    result = removeLast();
+                } else {
+                    Node aux = head;
+                    int counter = 0;
+
+                    while (counter < index - 1) {
+                        aux = aux.getNext();
+                        ++counter;
+                    }
+
+                    result = aux.getNext().getData();
+
+                    aux.setNext(aux.getNext().getNext());
+                }
+
+                --size;
+            } else {
+                throw new ArrayIndexOutOfBoundsException("Invalid index");
+            }
+        }
+        return result;
+    }
+
     @Override
     public String toString() {
         StringBuilder output = new StringBuilder();

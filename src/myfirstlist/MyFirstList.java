@@ -21,9 +21,20 @@ public class MyFirstList {
 
         List list = new List();
 
-        list.add(0, 10);
+//        list.add(0);
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
+//        list.add(4);
+//        list.add(5);
 
         System.out.println(list.toString());
+        System.out.println(list.size());
+        
+        list.remove(6);
+        
+        System.out.println(list.toString());
+        System.out.println(list.size());
     }
 
 }
